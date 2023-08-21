@@ -18,7 +18,8 @@ const loadUserData = (data) => {
            <p>Name : ${el.name}</p>
            <p>Username : ${el.username}</p>
            <p>Email' : ${el.email}</p>
-           <button onclick="showDetail(${el.id})" class="bg-slate-950 text-white p-2 rounded-md">detail</button>
+           <button onclick="showDetail(${el.id})" class="bg-slate-950 text-white p-2 rounded-md">detail</button> 
+           
            
         </div>
     `;
@@ -31,9 +32,10 @@ function showDetail(id) {
   fetch("https://jsonplaceholder.typicode.com/users/" + id)
     .then((res) => res.json())
     .then((data) => {
-      detail.innerHTML = ''
+      detail.innerHTML =''
       detail.insertAdjacentHTML(
         "beforeend",
+
         `
       <div class="bg-green-800 p-3 w-80  block mx-auto">
         <p>Name : ${data.name}</p>
@@ -48,21 +50,3 @@ function showDetail(id) {
 }
 loadData();
 
-// function loadData() {
-//   fetch("https://jsonplaceholder.typicode.com/users")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       let output = "";
-//       data.forEach(el => {
-//         output += `
-//         <div class="bg-green-800 p-3">
-//           <p>Name : ${el.name}</p>
-//           <p>Username : ${el.username}</p>
-//           <p>Email' : ${el.email}</p>
-//         </div>
-//           `;
-//       });
-//       document.getElementById('show').innerHTML = output;
-//     });
-// }
-// loadData();
